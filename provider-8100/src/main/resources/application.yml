@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: provider
+server:
+  port: 8100
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://server1.com:8300/eureka/,http://server2.com:8301/eureka/
+  #Eureka地址
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

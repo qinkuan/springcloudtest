@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: consumer-8201
+server:
+  port: 8201
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://server1.com:8300/eureka/,http://server2.com:8301/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

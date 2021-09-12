@@ -1,0 +1,14 @@
+server:
+  port: 8301
+spring:
+  application:
+    name: springcloud-eureka-server-8301
+eureka:
+  instance:
+    hostname: server2.com
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/,http://server1.com:8300/eureka/
+
